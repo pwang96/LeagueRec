@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <center><h1>Find new champions to play :^)</h1></center>
+    {% load static %}
+    <center><img src="{% static 'Home/lol_logo.png' %}" alt="LOL logo"/></center>
+
+    {% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'user:user' %}" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control input-lg" placeholder="Summoner Name" name="username"/>
+        <center><input type="submit" id="go"/></center>
+    </form>
+</body>
+</html>

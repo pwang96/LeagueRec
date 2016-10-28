@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+    <h3>Here are your results: {{ user.verbose_name }}</h3>
+    <h4>{{ user.rank }}</h4>
+    <img src="{{ user.summoner_icon }}" alt="Summoner Icon"/>
+    <h5>Here are your most played champions: </h5>
+    <ul>
+        {% for champ in top5_champs %}
+        <li>{{forloop.counter}} : {{champ}}</li>
+        <br />
+        {% endfor %}
+    </ul>
+    <h5>Here are your recommendations: </h5>
+    <ul>
+        {% for champ in recommended_champs %}
+        <li>{{forloop.counter}} : {{champ}}</li>
+        <br />
+        {% endfor %}
+    </ul>
+</body>
+</html>
